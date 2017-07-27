@@ -33,7 +33,8 @@
         "chrisboulton/php-resque": "^1.2",
         "pubnub/pubnub": " ~4.0.0",
         "aws/aws-sdk-php-resources": "^0.3.0",
-        "mongodb/mongodb": "^1.1"
+        "mongodb/mongodb": "^1.1",
+        "stripe/stripe-php": "^5.1"
     },
     "autoload": {
         "psr-4": {
@@ -56,8 +57,7 @@
         "post-create-project-cmd": [
             "@development-enable"
         ],
-        "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php",
-        "test": "phpunit"
+        "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php"
     },
     "require-dev": {
         "zendframework/zend-developer-tools": "^1.1.0",

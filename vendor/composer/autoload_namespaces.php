@@ -12,4 +12,7 @@ return array(
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Google_Service_' => array($vendorDir . '/google/apiclient-services/src'),
     'Google_' => array($vendorDir . '/google/apiclient/src'),
+    'MStripe\\' => array($vendorDir . '/MStripe'),
+    'MPubnub\\' => array($vendorDir . '/MPubnub'),
+    'Stripe\\' => array($vendorDir . '/stripe/stripe-php/lib'),
 );
