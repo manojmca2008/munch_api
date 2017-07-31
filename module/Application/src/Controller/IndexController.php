@@ -7,12 +7,13 @@
 
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\AbstractRestfulController;
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractRestfulController
+class IndexController extends AbstractActionController
 {
-    public function getList()
-    { 
-        echo "adsadd";die;
+    public function indexAction()
+    {
+        return new ViewModel();
     }
 }

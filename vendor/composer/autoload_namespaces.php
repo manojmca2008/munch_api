@@ -9,10 +9,6 @@ return array(
     'Resque' => array($vendorDir . '/chrisboulton/php-resque/lib'),
     'Requests' => array($vendorDir . '/rmccue/requests/library'),
     'PubNub\\' => array($vendorDir . '/pubnub/pubnub/src'),
-    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Google_Service_' => array($vendorDir . '/google/apiclient-services/src'),
     'Google_' => array($vendorDir . '/google/apiclient/src'),
-    'MStripe\\' => array($vendorDir . '/MStripe'),
-    'MPubnub\\' => array($vendorDir . '/MPubnub'),
-    'Stripe\\' => array($vendorDir . '/stripe/stripe-php/lib'),
 );

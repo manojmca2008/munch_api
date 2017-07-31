@@ -9,12 +9,10 @@ namespace Application;
 
 class Module
 {
-    const VERSION = '3.0.2';
+    const VERSION = '3.0.3-dev';
 
     public function getConfig()
     {
-        //$file = realpath(__DIR__ . '/config/module.config.php');
-        
         return include __DIR__ . '/../config/module.config.php';
     }
 }

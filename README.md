@@ -1,223 +1,109 @@
-# ZendSkeletonApplication
+# ZF3-API
+Estou portando uma parte deste projeto https://github.com/MatheusSilva/zendphptecinfo para o Zend FrameWork 3 em forma de Api RestFull 
 
-## Introduction
+## Arquivo para criar o banco de dados
 
-This is a skeleton application using the Zend Framework MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with Zend Framework.
-
-## Installation using Composer
-
-The easiest way to create a new Zend Framework project is to use
-[Composer](https://getcomposer.org/).  If you don't have it already installed,
-then please install as per the [documentation](https://getcomposer.org/doc/00-intro.md).
-
-To create your new Zend Framework project:
-
-```bash
-$ composer create-project -sdev zendframework/skeleton-application path/to/install
+```
+	data/schema.sql
+	Em caso de problemas na aplicação excluir todos arquivos menos .gitkeep no diretorio data/cache
 ```
 
-Once installed, you can test it out immediately using PHP's built-in web server:
+## testando APIs REST usando cURL
 
-```bash
-$ cd path/to/install
-$ php -S 0.0.0.0:8080 -t public/ public/index.php
-# OR use the composer alias:
-$ composer serve
 ```
+Uma das várias vantagens das APIs é que eu posso testar a API sem codificar uma linha sequer da interface(html,css e javascript) somente usando a ferramenta cURL no terminal linux/windows/mac ou da também para utilizar um extensão no navegador que faz isto. 
 
-This will start the cli-server on port 8080, and bind it to all network
-interfaces. You can then visit the site at http://localhost:8080/
-- which will bring up Zend Framework welcome page.
+Listando todos os usuários
+ curl -v -X GET http://192.168.33.10:8080/api/user
 
-**Note:** The built-in CLI server is *for development only*.
+Adicionando um novo usuário
+ curl -d "login=ze&nome=zezinho&email=zezinhoasdxsdd@gmail.com&telefone=(95) 2757-4164&endereco=Rua José Batista de Souza" -v -X POST http://192.168.33.10:8080/api/user
 
-## Development mode
+Detalhe de um usuário
+ curl -v -X GET http://192.168.33.10:8080/api/user/4
 
-The skeleton ships with [zf-development-mode](https://github.com/zfcampus/zf-development-mode)
-by default, and provides three aliases for consuming the script it ships with:
+Atualizando um usuário
+ curl -d "login=matheus&nome=matheus silva&email=matheus.hahhgdgf@gmail.com&telefone=987956475&endereco=Numa quebrada loka" -v -X PUT http://192.168.33.10:8080/api/user/4
 
-```bash
-$ composer development-enable  # enable development mode
-$ composer development-disable # disable development mode
-$ composer development-status  # whether or not development mode is enabled
-```
-
-You may provide development-only modules and bootstrap-level configuration in
-`config/development.config.php.dist`, and development-only application
-configuration in `config/autoload/development.local.php.dist`. Enabling
-development mode will copy these files to versions removing the `.dist` suffix,
-while disabling development mode will remove those copies.
-
-Development mode is automatically enabled as part of the skeleton installation process. 
-After making changes to one of the above-mentioned `.dist` configuration files you will
-either need to disable then enable development mode for the changes to take effect,
-or manually make matching updates to the `.dist`-less copies of those files.
-
-## Running Unit Tests
-
-To run the supplied skeleton unit tests, you need to do one of the following:
-
-- During initial project creation, select to install the MVC testing support.
-- After initial project creation, install [zend-test](https://zendframework.github.io/zend-test/):
-
-  ```bash
-  $ composer require --dev zendframework/zend-test
-  ```
-
-Once testing support is present, you can run the tests using:
-
-```bash
-$ ./vendor/bin/phpunit
-```
-
-If you need to make local modifications for the PHPUnit test setup, copy
-`phpunit.xml.dist` to `phpunit.xml` and edit the new file; the latter has
-precedence over the former when running tests, and is ignored by version
-control. (If you want to make the modifications permanent, edit the
-`phpunit.xml.dist` file.)
-
-## Using Vagrant
-
-This skeleton includes a `Vagrantfile` based on ubuntu 16.04, and using the
-ondrej/php PPA to provide PHP 7.0. Start it up using:
-
-```bash
-$ vagrant up
-```
-
-Once built, you can also run composer within the box. For example, the following
-will install dependencies:
-
-```bash
-$ vagrant ssh -c 'composer install'
-```
-
-While this will update them:
-
-```bash
-$ vagrant ssh -c 'composer update'
-```
-
-While running, Vagrant maps your host port 8080 to port 80 on the virtual
-machine; you can visit the site at http://localhost:8080/
-
-> ### Vagrant and VirtualBox
->
-> The vagrant image is based on ubuntu/xenial64. If you are using VirtualBox as
-> a provider, you will need:
->
-> - Vagrant 1.8.5 or later
-> - VirtualBox 5.0.26 or later
-
-For vagrant documentation, please refer to [vagrantup.com](https://www.vagrantup.com/)
-
-## Using docker-compose
-
-This skeleton provides a `docker-compose.yml` for use with
-[docker-compose](https://docs.docker.com/compose/); it
-uses the `Dockerfile` provided as its base. Build and start the image using:
-
-```bash
-$ docker-compose up -d --build
-```
-
-At this point, you can visit http://localhost:8080 to see the site running.
-
-You can also run composer from the image. The container environment is named
-"zf", so you will pass that value to `docker-compose run`:
-
-```bash
-$ docker-compose run zf composer install
-```
-
-## Web server setup
-
-### Apache setup
-
-To setup apache, setup a virtual host to point to the public/ directory of the
-project and you should be ready to go! It should look something like below:
-
-```apache
-<VirtualHost *:80>
-    ServerName zfapp.localhost
-    DocumentRoot /path/to/zfapp/public
-    <Directory /path/to/zfapp/public>
-        DirectoryIndex index.php
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        <IfModule mod_authz_core.c>
-        Require all granted
-        </IfModule>
-    </Directory>
-</VirtualHost>
-```
-
-### Nginx setup
-
-To setup nginx, open your `/path/to/nginx/nginx.conf` and add an
-[include directive](http://nginx.org/en/docs/ngx_core_module.html#include) below
-into `http` block if it does not already exist:
-
-```nginx
-http {
-    # ...
-    include sites-enabled/*.conf;
-}
+Excluindo um usuário
+ curl -v -X DELETE http://192.168.33.10:8080/api/user/4
 ```
 
 
-Create a virtual host configuration file for your project under `/path/to/nginx/sites-enabled/zfapp.localhost.conf`
-it should look something like below:
+## Categoria
 
-```nginx
-server {
-    listen       80;
-    server_name  zfapp.localhost;
-    root         /path/to/zfapp/public;
+```
+Listando todas Categorias
+ curl -v -X GET http://192.168.33.10:8080/api/categoria
 
-    location / {
-        index index.php;
-        try_files $uri $uri/ @php;
-    }
+Adicionando uma nova Categoria
+ curl -d "nome=zezinho" -v -X POST http://192.168.33.10:8080/api/categoria
 
-    location @php {
-        # Pass the PHP requests to FastCGI server (php-fpm) on 127.0.0.1:9000
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_param  SCRIPT_FILENAME /path/to/zfapp/public/index.php;
-        include fastcgi_params;
-    }
-}
+Detalhe da Categoria
+ curl -v -X GET http://192.168.33.10:8080/api/categoria/10
+
+Atualizando uma Categoria
+ curl -d "nome=sub 300" -v -X PUT http://192.168.33.10:8080/api/categoria/10
+
+Excluindo uma Categoria
+ curl -v -X DELETE http://192.168.33.10:8080/api/categoria/11
 ```
 
-Restart the nginx, now you should be ready to go!
+## Divisão
 
-## QA Tools
+```
+Listando todas Divisões
+ curl -v -X GET http://192.168.33.10:8080/api/divisao
 
-The skeleton does not come with any QA tooling by default, but does ship with
-configuration for each of:
+Adicionando uma nova Divisão
+ curl -d "nome=segundona" -v -X POST http://192.168.33.10:8080/api/divisao
 
-- [phpcs](https://github.com/squizlabs/php_codesniffer)
-- [phpunit](https://phpunit.de)
+Detalhe da Divisão
+ curl -v -X GET http://192.168.33.10:8080/api/divisao/4
 
-Additionally, it comes with some basic tests for the shipped
-`Application\Controller\IndexController`.
+Atualizando uma Divisão
+ curl -d "nome=serie C" -v -X PUT http://192.168.33.10:8080/api/divisao/4
 
-If you want to add these QA tools, execute the following:
-
-```bash
-$ composer require --dev phpunit/phpunit squizlabs/php_codesniffer zendframework/zend-test
+Excluindo uma Divisão
+ curl -v -X DELETE http://192.168.33.10:8080/api/divisao/4
 ```
 
-We provide aliases for each of these tools in the Composer configuration:
+## Técnico
 
-```bash
-# Run CS checks:
-$ composer cs-check
-# Fix CS errors:
-$ composer cs-fix
-# Run PHPUnit tests:
-$ composer test
 ```
+Listando todos Técnicos
+ curl -v -X GET http://192.168.33.10:8080/api/tecnico
+
+Adicionando um novo Técnico
+ curl -d "nome=tite&data_nascimento=20/04/1985" -v -X POST http://192.168.33.10:8080/api/tecnico
+
+Detalhe do Técnico
+ curl -v -X GET http://192.168.33.10:8080/api/tecnico/4
+
+Atualizando um Técnico
+ curl -d "nome=renato C&data_nascimento=25/02/1980" -v -X PUT http://192.168.33.10:8080/api/tecnico/4
+
+Excluindo um Técnico
+ curl -v -X DELETE http://192.168.33.10:8080/api/tecnico/4
+```
+
+## Time
+
+```
+Listando todos Times
+ curl -v -X GET http://192.168.33.10:8080/api/time
+
+Adicionando um novo Time
+ curl -d "nome=inter&tecnico_codigo_tecnico=5&categoria_codigo_categoria=10&divisao_codigo_divisao=4&desempenho_time=0&comprar_novo_jogador=0&capa=foto.png" -v -X POST http://192.168.33.10:8080/api/time/create
+
+Detalhe do Time
+ curl -v -X GET http://192.168.33.10:8080/api/time/detalhe/2
+
+Atualizando um Time
+ curl -d "nome=ceramica&tecnico_codigo_tecnico=5&categoria_codigo_categoria=10&divisao_codigo_divisao=4&desempenho_time=0&comprar_novo_jogador=0&capa=foto.png" -v -X POST http://192.168.33.10:8080/api/time/update/2
+
+Excluindo um Time
+ curl -v -X DELETE http://192.168.33.10:8080/api/time/delete/2
+```
+
+Meu perfil no linkedin(http://br.linkedin.com/in/matheussilvaphp)

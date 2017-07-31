@@ -7,6 +7,7 @@
 
 namespace Application;
 
+use Album\Controller\AlbumController;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -19,7 +20,7 @@ return [
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => Controller\IndexController::class,
+                        'controller' => AlbumController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -34,32 +35,11 @@ return [
                     ],
                 ],
             ],
-            'restaurant' => [
-                'type' => Literal::class,
-                'options' => [
-                    'route'    => '/restaurant/details',
-                    'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        //'action'     => 'index',
-                    ],
-                ],
-            ],
-            'test' => [
-                'type' => Literal::class,
-                'options' => [
-                    'route'    => '/test/lib',
-                    'defaults' => [
-                        'controller' => Controller\TestController::class,
-                        //'action'     => 'index',
-                    ],
-                ],
-            ],
         ],
     ],
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
-            Controller\TestController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [

@@ -1,10 +1,16 @@
 <?php
-// Set display errors to one
-ini_set('display_errors', 1);
-// Report all errors
-error_reporting(E_ALL);
+
 use Zend\Mvc\Application;
 use Zend\Stdlib\ArrayUtils;
+
+/**
+ * Display all errors when APPLICATION_ENV is development.
+ */
+if (array_key_exists("APPLICATION_ENV", $_SERVER) && $_SERVER['APPLICATION_ENV'] === 'development') {
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+}
+
 
 /**
  * This makes our life easier when dealing with paths. Everything is relative
