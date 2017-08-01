@@ -30,6 +30,18 @@ return [
                     ],
                 ],
             ],
+            'orders' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/api/orders',
+                    'constraints' => [
+                        'id'     => '[a-zA-Z0-9]+',
+                    ],
+                    'defaults' => [
+                        'controller' => Controller\UserOrderController::class,
+                    ],
+                ],
+            ],
         ],
     ],
     'view_manager' => [

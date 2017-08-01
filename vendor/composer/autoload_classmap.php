@@ -33,7 +33,4 @@ return array(
     'Google_Service_Exception' => $vendorDir . '/google/apiclient/src/Google/Service/Exception.php',
     'Google_Service_Resource' => $vendorDir . '/google/apiclient/src/Google/Service/Resource.php',
     'Zend\\I18n\\Translator\\Resources' => $vendorDir . '/zendframework/zend-i18n-resources/src/Resources.php',
-    'MCommons\Controller\AbstractRestfulController' => $vendorDir . DS . "MCommons" . DS . "src" . DS . "Controller" . DS . "AbstractRestfulController.php",
-    'MCommons\StaticOptions' => $vendorDir . DS . "MCommons" . DS . "src" . DS . "StaticOptions.php",
-    'MCommons\CommonFunctions' => $vendorDir . DS . "MCommons" . DS . "src" . DS . "CommonFunctions.php",
 );

@@ -13,7 +13,6 @@ class UserTable
     }
 
     public function fetchAll() {
-        //print_r($this->tableGateway->select());die;
         return $this->tableGateway->select();
     }
 
