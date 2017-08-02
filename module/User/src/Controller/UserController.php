@@ -14,7 +14,6 @@ class UserController extends AbstractRestfulController {
     private $table;
 
     public function __construct(UserTable $table) {
-        print_r($table);die;
         $this->table = $table;
     }
 
