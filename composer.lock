@@ -973,16 +973,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "b2998cf8a495a03d541f274a077277afcf662a12"
+                "reference": "8cbc25742b1409ac4fd93435a1b2a7f7e1ae4554"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/b2998cf8a495a03d541f274a077277afcf662a12",
-                "reference": "b2998cf8a495a03d541f274a077277afcf662a12",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/8cbc25742b1409ac4fd93435a1b2a7f7e1ae4554",
+                "reference": "8cbc25742b1409ac4fd93435a1b2a7f7e1ae4554",
                 "shasum": ""
             },
             "require": {
@@ -1024,7 +1024,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2017-07-03 17:51:56"
+            "time": "2017-08-01 15:08:03"
         },
         {
             "name": "zendframework/zend-code",
