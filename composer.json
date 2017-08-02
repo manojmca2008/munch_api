@@ -31,7 +31,9 @@
         "psr-4": {
             "Application\\": "module/Application/src/",
             "User\\": "module/User/src/",
-            "RestFunctions\\": "vendor/RestFunctions/src/"
+            "RestFunctions\\": "vendor/RestFunctions/src/",
+            "Search\\": "module/Search/src/",
+            "Search\\common\\": "module/Search/common/"
         }
     },
     "autoload-dev": {

@@ -33,6 +33,8 @@ return array(
     'ZF\\DevelopmentMode\\' => array($vendorDir . '/zfcampus/zf-development-mode/src'),
     'User\\' => array($baseDir . '/module/User/src'),
     'Stripe\\' => array($vendorDir . '/stripe/stripe-php/lib'),
+    'Search\\' => array($baseDir . '/module/Search/src'),
+    'Search\\Common\\' => array($baseDir . '/module/Search/common'),
     'RestFunctions\\' => array($vendorDir . '/RestFunctions/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),

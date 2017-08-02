@@ -27,4 +27,5 @@ return [
     //'Divisao',
     //'Tecnico',
     //'Time',
+    'Search',
 ];
