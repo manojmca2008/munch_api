@@ -68,5 +68,8 @@ class Module implements ConfigProviderInterface {
             ],
         ];
     }
+    public function eventInitialize() {
+        print_r('i m here');
+    }
 
 }
