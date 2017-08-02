@@ -4,15 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/munchado/workspace/munch_api/module/User/src/Model/User.php</file>
-            <file>file:/home/munchado/workspace/munch_api/module/User/src/Model/DbTable/UserTable.php</file>
-            <file>file:/home/munchado/workspace/munch_api/module/User/src/Model/UserOrderTable.php</file>
+            <file>file:/home/munchado/workspace/munch_api/vendor/RestFunctions/src/Controller/AbstractRestfulController.php</file>
             <file>file:/home/munchado/workspace/munch_api/module/User/src/Controller/UserOrderController.php</file>
-            <file>file:/home/munchado/workspace/munch_api/module/User/config/module.config.php</file>
+            <file>file:/home/munchado/workspace/munch_api/composer.json</file>
+            <file>file:/home/munchado/workspace/munch_api/vendor/RestFunctions/src/StaticFunctions.php</file>
             <file>file:/home/munchado/workspace/munch_api/module/User/src/Controller/UserController.php</file>
             <file>file:/home/munchado/workspace/munch_api/module/User/src/Module.php</file>
-            <file>file:/home/munchado/workspace/munch_api/public/index.php</file>
+            <file>file:/home/munchado/workspace/munch_api/vendor/composer/autoload_namespaces.php</file>
             <file>file:/home/munchado/workspace/munch_api/module/User/src/Model/UserTable.php</file>
-            <file>file:/home/munchado/workspace/munch_api/module/User/src/Model/UserOrder.php</file>
+            <file>file:/home/munchado/workspace/munch_api/vendor/composer/autoload_classmap.php</file>
+            <file>file:/home/munchado/workspace/munch_api/vendor/composer/autoload_psr4.php</file>
         </group>
     </open-files>
 </project-private>

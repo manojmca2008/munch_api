@@ -7,7 +7,7 @@ use User\Model\UserTable;
 use Zend\View\Model\JsonModel;
 use Zend\EventManager\EventManagerInterface;
 use RestFunctions\Controller\AbstractRestfulController;
-//use RestFunctions\StaticFunctions;
+use RestFunctions\StaticFunctions;
 
 class UserController extends AbstractRestfulController {
 
