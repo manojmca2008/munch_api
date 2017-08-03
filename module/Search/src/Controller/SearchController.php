@@ -15,13 +15,36 @@ class SearchController extends AbstractRestfulController {
         
     }
 
-    public function getList() { //echo "dsads";die;
+    public function getList() { 
         //echo '<pre>'; print_r($this->getRequest()->getQuery()->toArray()); die;
         $rawInput   = $this->getRequest()->getQuery()->toArray();
         
         $cleanInput = \Search\Common\Utility::cleanWebSearchParams($rawInput);
         
         echo '<pre>'; print_r($cleanInput);die;   
+        $debug = $cleanInput['DeBuG'] ;
+        if($debug == '404'){
+            $this->debug = true;
+            $this->starttime_milli = microtime(true);
+        }
+        
+        $reqtype = $cleanInput['rt'] ;
+        $response = array();
+        if($reqtype == 'seo'){
+            $response = $this->getSeoResponse();
+            $response['image_base_path'] = IMAGE_PATH;
+        } else {
+            $response = $this->search_by_req_type($reqtype);
+        }
+        
+        if ($this->debug) {
+            $response['time_in_millis'] = microtime(true) - $this->starttime_milli;
+            $response['original_request_params'] = $this->getRequest()->getQuery()->toArray();
+        }
+        return $response;
+        
+        
+        
         if (!empty($data)) {
             return new JsonModel($data);
         }

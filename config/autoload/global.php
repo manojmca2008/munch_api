@@ -10,6 +10,47 @@
  * control, so do not include passwords or other sensitive information in this
  * file.
  */
+/**
+ * Works only in local environment. No effect in other environments.
+ * @param mixed $obj object to be printed
+ * @param bool $exit defaults to false. If true exits the app.
+ * @return NULL
+ */
+function pr($obj, $exit = false) {
+    if(APPLICATION_ENV != 'local'){
+        return ;
+    }
+    $bt = debug_backtrace();
+    $caller = array_shift($bt);
+    echo "<pre>";
+    echo "\n===== Called from " . $caller['file'] . " " . $caller['line'] . " =====\n\n";
+    print_r($obj);
+    echo "\n\n";
+    if ($exit) {
+        exit;
+    }
+}
+
+/**
+ * Works only in local environment. No effect in other environments.
+ * @param mixed $obj object to be var_dump(ed)
+ * @param bool $exit defaults to false. If true exits the app.
+ * @return NULL
+ */
+function vd($obj, $exit = false) {
+    if(APPLICATION_ENV != 'local'){
+        return ;
+    }
+    $bt = debug_backtrace();
+    $caller = array_shift($bt);
+    echo "<pre>";
+    echo "\n===== Called from " . $caller['file'] . " " . $caller['line'] . " =====\n\n";
+    var_dump($obj);
+    echo "\n\n";
+    if ($exit) {
+        exit;
+    }
+}
 
 return array(
     'db' => array(
