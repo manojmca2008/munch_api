@@ -15,6 +15,15 @@ return [
                     ],
                 ],
             ],
+            'mobile-search' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/api/search',
+                    'defaults' => [
+                        'controller' => Controller\MobSearchController::class,
+                    ],
+                ],
+            ],
         ],
     ],
 ];

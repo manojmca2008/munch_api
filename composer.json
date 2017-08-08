@@ -33,7 +33,8 @@
             "User\\": "module/User/src/",
             "RestFunctions\\": "vendor/RestFunctions/src/",
             "Search\\": "module/Search/src/",
-            "Search\\common\\": "module/Search/common/"
+            "Search\\Common\\": "module/Search/common/",
+            "Search\\Solr\\": "module/Search/solr/"
         }
     },
     "autoload-dev": {

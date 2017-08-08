@@ -11,9 +11,9 @@
  * file.
  */
 
-return array(
+return [
     'db' => [
     	'username' => 'root',
         'password' => 'root123'
     ]
-);
+];

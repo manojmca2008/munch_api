@@ -33,7 +33,7 @@ function pr($obj, $exit = false) {
 
 /**
  * Works only in local environment. No effect in other environments.
- * @param mixed $obj object to be var_dump(ed)
+ * @param mixed $obj object to be var_dump(ed]
  * @param bool $exit defaults to false. If true exits the app.
  * @return NULL
  */
@@ -52,18 +52,27 @@ function vd($obj, $exit = false) {
     }
 }
 
-return array(
-    'db' => array(
+return [
+    'db' => [
         'driver' => 'Pdo',
         'dsn'    => 'mysql:host=localhost;dbname=MunchAdo',
-        'driver_options' => array(
+        'driver_options' => [
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
-        ),
-    ),
-    'service_manager' => array(
-        'factories' => array(
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
             'Zend\Db\Adapter\Adapter'
             => 'Zend\Db\Adapter\AdapterServiceFactory',
-        ),
-    ),
-);
+        ],
+    ],
+    'solr' => [
+            'protocol' => 'http://',
+            //'host' => '192.168.2.12',
+            //'port' => 8080,
+            //'context' => 'msearch',
+          'host' => 'localhost',
+          'port' => 8984,
+          'context' => 'solr'
+        ],
+];
