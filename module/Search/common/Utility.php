@@ -28,6 +28,17 @@ class Utility
         "sa" => "su"
     );
     
+    public function getTest(\Zend\ServiceManager\ServiceManager $sm)
+    {
+        if ( $sm->has('ApplicationConfig') )
+        {
+            pr($sm->get('Config'));
+        }
+        
+    }
+
+
+    
     /**
      * Check if required search params are present. If not set their default values.
      * @param array $params search parameters

@@ -36,6 +36,7 @@ return array(
     'Search\\Solr\\' => array($baseDir . '/module/Search/solr'),
     'Search\\Common\\' => array($baseDir . '/module/Search/common'),
     'Search\\' => array($baseDir . '/module/Search/src'),
+    'City\\' => array($baseDir . '/module/City/src'),
     'RestFunctions\\' => array($vendorDir . '/RestFunctions/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),

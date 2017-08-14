@@ -41,7 +41,7 @@ class MobSearchController extends AbstractRestfulController {
         {
             throw new \Exception("Parameter reqtype is invalid or missing.", 400);
         }
-
+        
         $response   =   $this->searchByRequestType($cleanInput);
         
         if ($this->debug) {

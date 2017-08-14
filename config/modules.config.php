@@ -28,4 +28,5 @@ return [
     //'Tecnico',
     //'Time',
     'Search',
+    'City',
 ];

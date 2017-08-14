@@ -6,48 +6,67 @@ namespace Search\Controller;
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel;
 use Zend\EventManager\EventManagerInterface;
-use MCommons\StaticOptions;
+
+//use Search\Solr\Synonyms;
+
 
 
 class SearchController extends AbstractRestfulController {
 
+    private $objSynonym ;
+    /*public function __construct(Synonyms $syn) {
+        $this->objSynonym = $syn;
+    }*/
+
     public function __construct() {
         
     }
-
-    public function getList() { 
-        //echo '<pre>'; print_r($this->getRequest()->getQuery()->toArray()); die;
-        $rawInput   = $this->getRequest()->getQuery()->toArray();
+    public function getList() {  
         
-        $cleanInput = \Search\Common\Utility::cleanWebSearchParams($rawInput);
+        $sL      =  $this->getEvent()->getApplication()->getServiceManager();
+        /*
+        $tblCity =  $sL->get(\City\Model\CityTable::class);
         
-        echo '<pre>'; print_r($cleanInput);die;   
-        $debug = $cleanInput['DeBuG'] ;
-        if($debug == '404'){
-            $this->debug = true;
-            $this->starttime_milli = microtime(true);
+        $cities  =  $tblCity->fetchAll();
+        
+        echo '<pre>';
+        foreach($cities as $city )
+        {
+            echo '<pre>';
+            print_r($city);
+            echo "---";
         }
+        */
         
-        $reqtype = $cleanInput['rt'] ;
-        $response = array();
-        if($reqtype == 'seo'){
-            $response = $this->getSeoResponse();
-            $response['image_base_path'] = IMAGE_PATH;
-        } else {
-            $response = $this->search_by_req_type($reqtype);
-        }
+        $synonym = $sL->get(\Search\Solr\Synonyms::class);
         
-        if ($this->debug) {
-            $response['time_in_millis'] = microtime(true) - $this->starttime_milli;
-            $response['original_request_params'] = $this->getRequest()->getQuery()->toArray();
-        }
-        return $response;
+        $s = $synonym->applySynonyFilter("b.b.q.");
+        print_r($s);
+        
+        die;
+        /*
+        $x = $this->objSynonym->applySynonyFilter("b.b.q.");
+        $name    = Synonyms::class;
+        $service = new Synonyms();
+        */
         
         
+        /*$ss = $sm->get('router');
+        pr($ss,1);*/
         
-        if (!empty($data)) {
-            return new JsonModel($data);
-        }
+        
+        /*
+        $objUtil = new \Search\Common\Utility();
+        $objUtil->getTest($sm);
+        */
+        
+        $appConfig =  $this->getConfig('ApplicationConfig');
+        
+        $appConfig2 =  $this->getConfig('Config');
+        
+        pr($appConfig);
+        echo '<br>----------------------------------';
+        pr($appConfig2,1);
     }
 
     public function get($id) {

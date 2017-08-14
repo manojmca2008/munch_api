@@ -34,7 +34,8 @@
             "RestFunctions\\": "vendor/RestFunctions/src/",
             "Search\\": "module/Search/src/",
             "Search\\Common\\": "module/Search/common/",
-            "Search\\Solr\\": "module/Search/solr/"
+            "Search\\Solr\\": "module/Search/solr/",
+            "City\\": "module/City/src/"
         }
     },
     "autoload-dev": {
